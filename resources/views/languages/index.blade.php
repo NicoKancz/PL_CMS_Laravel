@@ -1,4 +1,4 @@
-@extends('languages.layout')
+@extends('layout')
 
 @section('content')
     <div class="row">
