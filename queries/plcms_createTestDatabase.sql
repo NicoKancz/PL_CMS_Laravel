@@ -5,7 +5,7 @@ use PL_CMS_testing;
 create table if not exists languages(
     languageId int not null auto_increment,
     languageName varchar(55) not null,
-    languageAppearance date not null,
+    languageAppearance year not null,
     primary key (languageId)
 );
 

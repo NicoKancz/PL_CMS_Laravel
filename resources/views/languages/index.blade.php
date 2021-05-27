@@ -1,10 +1,19 @@
 @extends('languages.layout')
 
 @section('content')
-    <h1 class="">The languages</h1>
-    @foreach ($languages as $language)
-        <p>{{$language->languageName}}</p>
-    @endforeach
-    <a href="{{url('/feedback')}}" class="w-1/5 text-center rounded inline-block ring-2 bg-gray-900 text-white">Click Me</a>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="tw-text-2xl tw-font-bold">The languages</h1>
+        </div>
+        @foreach ($languages as $language)
+        <div class="col-md-3">
+            <p>{{$language->languageName}}</p>
+        </div>
+        @endforeach
+        <div class="col-md-3">
+            <a href="{{url('/feedback')}}" 
+            class="tw-w-48 tw-text-center tw-rounded tw-inline-block tw-ring-2 tw-bg-gray-900 tw-text-white">Click Me</a>
+        </div>
+    </div>
 @endsection
         
