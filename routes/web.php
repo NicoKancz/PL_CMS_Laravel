@@ -14,7 +14,7 @@ use App\Http\Controllers\LanguageController;
 |
 */
 
-Route::get('/', [LanguageController::class, 'index']);
+Route::get('/', [LanguageController::class, 'index'])->name('index');
 
 Route::get('feedback', function(){
     return "You've been clicked, punk";
