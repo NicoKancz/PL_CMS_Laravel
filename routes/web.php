@@ -14,8 +14,21 @@ use App\Http\Controllers\LanguageController;
 |
 */
 
-Route::get('/', [LanguageController::class, 'index'])->name('index');
+//route to home website
+Route::get('/', function(){
+    return view('index');
+});
+//Routes for language model
+//routes for language crud system
+Route::get('/languages', [LanguageController::class, 'index']);
+Route::get('/languages/create', [LanguageController::class, 'create']);
+Route::post('/languages', [LanguageController::class, 'store']);
+Route::get('/languages/{id}', [LanguageController::class, 'show']);
+Route::get('/languages/{id}/edit', [LanguageController::class, 'edit']);
+Route::patch('/languages/{id}', [LanguageController::class, 'update']);
+Route::delete('/languages/{id}', [LanguageController::class, 'destroy']);
 
+//for testing purpose
 Route::get('feedback', function(){
     return "You've been clicked, punk";
 });

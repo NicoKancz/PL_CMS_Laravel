@@ -27,7 +27,9 @@ class LanguageController extends Controller
      */
     public function create()
     {
-        //
+        return view('languages.create', [
+            'languages' => $languages
+        ]);
     }
 
     /**
@@ -38,7 +40,12 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'languageName' => 'required',
+            'languageAppearance' => 'required',
+        ]);
+
+        Language::create($data);
     }
 
     /**
@@ -49,7 +56,9 @@ class LanguageController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('languages.show', [
+            'languages' => $languages
+        ]);
     }
 
     /**
@@ -60,19 +69,28 @@ class LanguageController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('languages.edit', [
+            'languages' => $languages
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
-     *
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'languageName' => 'required',
+            'languageAppearance' => 'required',
+        ]);
+
+        $language = Language::find($id);
+
+        $language->update($data);
     }
 
     /**
@@ -83,6 +101,7 @@ class LanguageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $language = Language::find($id);
+        $language->delete();
     }
 }
