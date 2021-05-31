@@ -27,9 +27,7 @@ class LanguageController extends Controller
      */
     public function create()
     {
-        return view('languages.create', [
-            'languages' => $languages
-        ]);
+        return view('languages.create');
     }
 
     /**
@@ -40,12 +38,17 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
+        $request->validate([
             'languageName' => 'required',
-            'languageAppearance' => 'required',
+            'languageAppearance' => 'required'
         ]);
 
-        Language::create($data);
+        Language::insert([
+            'languageName' => $request->input('languageName'), 
+            'languageAppearance' => $request->input('languageAppearance') 
+        ]);
+
+        return redirect('/languages')->with('success', 'Language has been added');
     }
 
     /**
@@ -56,8 +59,10 @@ class LanguageController extends Controller
      */
     public function show($id)
     {
+        $language = Language::find($id);
+
         return view('languages.show', [
-            'languages' => $languages
+            'language' => $language
         ]);
     }
 
@@ -69,8 +74,10 @@ class LanguageController extends Controller
      */
     public function edit($id)
     {
+        $language = Language::find($id);
+
         return view('languages.edit', [
-            'languages' => $languages
+            'language' => $language
         ]);
     }
 
@@ -83,14 +90,19 @@ class LanguageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->validate([
+        $request->validate([
             'languageName' => 'required',
-            'languageAppearance' => 'required',
+            'languageAppearance' => 'required'
         ]);
 
         $language = Language::find($id);
 
-        $language->update($data);
+        $language->update([
+            'languageName' => $request->input('languageName'), 
+            'languageAppearance' => $request->input('languageAppearance') 
+        ]);
+
+        return redirect('/languages/' . $id)->with('success', 'Language has been updated');
     }
 
     /**
@@ -103,5 +115,7 @@ class LanguageController extends Controller
     {
         $language = Language::find($id);
         $language->delete();
+
+        return redirect('/languages');
     }
 }
