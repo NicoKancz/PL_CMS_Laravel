@@ -11,7 +11,7 @@ class LanguageTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function a_language_can_be_added_to_main(){
+    public function a_language_can_be_added(){
 
         $this->withoutExceptionHandling();
 
@@ -20,7 +20,7 @@ class LanguageTest extends TestCase
             'languageAppearance' => 1987,
         ]);
 
-        $response->assertOk();
+        $response->assertStatus(302);
         $this->assertCount(1, Language::all());
     }
 
@@ -56,13 +56,14 @@ class LanguageTest extends TestCase
             'languageAppearance' => 1987,
         ]);
 
-        var_dump($language = Language::first());
-        var_dump($language->languageId);
+        $language = Language::first();
 
-        $response = $this->post('/languages/' . $language->languageId, [
+        $this->patch('/languages/' . $language->languageId, [
             'languageName' => 'C#',
             'languageAppearance' => 2001,
         ]);
+
+        $language = Language::first();
 
         $this->assertEquals('C#', $language->languageName);
         $this->assertEquals(2001, $language->languageAppearance);
