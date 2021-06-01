@@ -13,7 +13,10 @@ class ContentController extends Controller
      */
     public function index()
     {
-        //
+        $contents = Content::all();
+        return view('contents.index', [
+            'contents' => $contents
+        ]);
     }
 
     /**
@@ -23,7 +26,7 @@ class ContentController extends Controller
      */
     public function create()
     {
-        //
+        return view('contents.create');
     }
 
     /**

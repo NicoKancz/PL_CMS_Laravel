@@ -14,7 +14,7 @@ class CreateContentsTable extends Migration
     public function up()
     {
         Schema::create('contents', function (Blueprint $table) {
-            $table->id('contentId')->autoIncrement();
+            $table->id('contentId');
             $table->string('contentText', 255);
             $table->text('contentDesc')->nullable();
             $table->string('contentType', 55);
