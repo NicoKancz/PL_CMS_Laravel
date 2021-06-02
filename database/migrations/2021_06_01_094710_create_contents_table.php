@@ -19,7 +19,10 @@ class CreateContentsTable extends Migration
             $table->text('contentDesc')->nullable();
             $table->string('contentType', 55);
             $table->string('contentImage', 255)->nullable();
-            $table->date('contentDate');
+            $table->unsignedBigInteger('userId');
+            $table->unsignedBigInteger('categoryId');
+            $table->foreign('userId')->references('userId')->on('users');
+            $table->foreign('categoryId')->references('categoryId')->on('categories');
             $table->timestamps();
         });
     }

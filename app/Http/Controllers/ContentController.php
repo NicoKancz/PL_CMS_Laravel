@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Content;
 
 class ContentController extends Controller
 {
@@ -37,7 +38,21 @@ class ContentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'contentName' => 'required',
+            'contentDesc' => '',
+            'contentType' => 'required',
+            'contentImage' => '',
+        ]);
+
+        Content::insert([
+            'contentName' => $request->input('contentName'), 
+            'contentDesc' => $request->input('contentDesc'),
+            'contentType' => $request->input('contentType'),
+            'contentImage' => $request->input('contentImage'),
+        ]);
+
+        return redirect('/contents')->with('success', 'Content has been added');
     }
 
     /**
@@ -48,7 +63,11 @@ class ContentController extends Controller
      */
     public function show($id)
     {
-        //
+        $content = Content::find($id);
+
+        return view('contents.show', [
+            'content' => $content
+        ]);
     }
 
     /**
@@ -59,7 +78,11 @@ class ContentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $content = Content::find($id);
+
+        return view('contents.edit', [
+            'content' => $content
+        ]);
     }
 
     /**
@@ -71,7 +94,23 @@ class ContentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'contentName' => 'required',
+            'contentDesc' => '',
+            'contentType' => 'required',
+            'contentImage' => '',
+        ]);
+
+        $content = Content::find($id);
+
+        $content->update([
+            'contentName' => $request->input('contentName'), 
+            'contentDesc' => $request->input('contentDesc'),
+            'contentType' => $request->input('contentType'),
+            'contentImage' => $request->input('contentImage'),
+        ]);
+
+        return redirect('/contents/' . $id)->with('success', 'Content has been updated');
     }
 
     /**
@@ -82,6 +121,9 @@ class ContentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $content = Content::find($id);
+        $content->delete();
+
+        return redirect('/contents');
     }
 }

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContentController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,26 @@ Route::get('/categories/{id}', [CategoryController::class, 'show']);
 Route::get('/categories/{id}/edit', [CategoryController::class, 'edit']);
 Route::patch('/categories/{id}', [CategoryController::class, 'update']);
 Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
+
+//Routes for content model
+//routes for content crud system
+Route::get('/contents', [ContentController::class, 'index']);
+Route::get('/contents/create', [ContentController::class, 'create']);
+Route::post('/contents', [ContentController::class, 'store']);
+Route::get('/contents/{id}', [ContentController::class, 'show']);
+Route::get('/contents/{id}/edit', [ContentController::class, 'edit']);
+Route::patch('/contents/{id}', [ContentController::class, 'update']);
+Route::delete('/contents/{id}', [ContentController::class, 'destroy']);
+
+//Routes for comment model
+//routes for comment crud system
+Route::get('/comments', [CommentController::class, 'index']);
+Route::get('/comments/create', [CommentController::class, 'create']);
+Route::post('/comments', [CommentController::class, 'store']);
+Route::get('/comments/{id}', [CommentController::class, 'show']);
+Route::get('/comments/{id}/edit', [CommentController::class, 'edit']);
+Route::patch('/comments/{id}', [CommentController::class, 'update']);
+Route::delete('/comments/{id}', [CommentController::class, 'destroy']);
 
 //for testing purpose
 Route::get('feedback', function(){

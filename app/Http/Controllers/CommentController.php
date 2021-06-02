@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Comment;
 
 class CommentController extends Controller
 {
@@ -13,7 +14,10 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::all();
+        return view('comments.index', [
+            'comments' => $comments
+        ]);
     }
 
     /**
@@ -23,7 +27,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        return view('comments.create');
     }
 
     /**
@@ -34,7 +38,15 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'commentText' => 'required',
+        ]);
+
+        Comment::insert([
+            'commentText' => $request->input('commentText'), 
+        ]);
+
+        return redirect('/comments')->with('success', 'Comment has been added');
     }
 
     /**
@@ -45,7 +57,11 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        //
+        $comment = Comment::find($id);
+
+        return view('comments.show', [
+            'comment' => $comment,
+        ]);
     }
 
     /**
@@ -56,7 +72,11 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comment = Comment::find($id);
+
+        return view('comments.edit', [
+            'comment' => $comment,
+        ]);
     }
 
     /**
@@ -68,7 +88,17 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'commentText' => 'required',
+        ]);
+
+        $comment = Comment::find($id);
+
+        $comment->update([
+            'commentText' => $request->input('commentText'), 
+        ]);
+
+        return redirect('/comments/' . $id)->with('success', 'Comment has been updated');
     }
 
     /**
@@ -79,6 +109,9 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::find($id);
+        $comment->delete();
+
+        return redirect('/comments');
     }
 }
