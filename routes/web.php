@@ -66,3 +66,5 @@ Route::delete('/comments/{id}', [CommentController::class, 'destroy']);
 Route::get('feedback', function(){
     return "You've been clicked, punk";
 });
+
+Auth::routes();

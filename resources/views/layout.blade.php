@@ -1,5 +1,5 @@
         @include('includes.header')
-        <main class="container">
+        <main class="container py-4">
             @yield('content')
         </main>
         <!-- Scripts -->
