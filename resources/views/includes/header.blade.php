@@ -8,7 +8,7 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light tw-shadow-md">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="{{url('/')}}">PL_CMS</a>
                     <button
@@ -25,19 +25,23 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('/languages')}}">Languages</a>
+                                <a class="nav-link <?=Route::currentRouteName() == 'languages' ? 'active' : '';?>" 
+                                href="{{url('/languages')}}">Languages</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('/categories')}}">Categories</a>
+                                <a class="nav-link <?=Route::currentRouteName() == 'categories' ? 'active' : '';?>" 
+                                href="{{url('/categories')}}">Categories</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('/contents')}}">Contents</a>
+                                <a class="nav-link <?=Route::currentRouteName() == 'contents' ? 'active' : '';?>" 
+                                href="{{url('/contents')}}">Contents</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('/comments')}}">Comments</a>
+                                <a class="nav-link <?=Route::currentRouteName() == 'comments' ? 'active' : '';?>" 
+                                href="{{url('/comments')}}">Comments</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">News on the website</a>
+                                <a class="nav-link" href="#">Newsfeed</a>
                             </li>
                         </ul>
                     </div>
