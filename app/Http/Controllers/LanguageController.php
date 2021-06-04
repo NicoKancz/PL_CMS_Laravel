@@ -15,6 +15,7 @@ class LanguageController extends Controller
     public function index()
     {
         $languages = Language::all();
+        
         return view('languages.index', [
             'languages' => $languages
         ]);

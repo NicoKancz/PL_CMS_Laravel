@@ -5,6 +5,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\AppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,11 @@ use App\Http\Controllers\CommentController;
 */
 
 //route to home website
-Route::get('/', function(){
-    return view('index');
-})->name('index');
+Route::get('/', [AppController::class, 'index'])->name('index');
+//route to categories of app
+Route::get('/appLanguage', [AppController::class, 'language'])->name('language');
+//route to contents of app
+Route::get('/appCategory', [AppController::class, 'category'])->name('category');
 
 //Routes for language model
 //routes for language crud system

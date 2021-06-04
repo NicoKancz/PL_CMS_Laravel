@@ -31,5 +31,6 @@ class Language extends Model
     protected $fillable = [
         'languageName',
         'languageAppearance',
+        'languageImage',
     ];
 }

@@ -17,6 +17,7 @@ class CreateLanguagesTable extends Migration
             $table->id('languageId');
             $table->string('languageName', 55);
             $table->year('languageAppearance');
+            $table->string('languageImage', 255)->default('none');
             $table->timestamps();
         });
     }

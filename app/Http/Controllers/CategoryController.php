@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Category;
+use App\Models\Language;
 
 class CategoryController extends Controller
 {
@@ -27,7 +29,11 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        $languages = Language::all();
+
+        return view('categories.create', [
+            'languages' => $languages,
+        ]);
     }
 
     /**
@@ -40,12 +46,17 @@ class CategoryController extends Controller
     {
         $request->validate([
             'categoryName' => 'required',
-            'categoryDesc' => ''
+            'categoryDesc' => '',
+            'languageId' => 'required',
         ]);
 
         Category::insert([
             'categoryName' => $request->input('categoryName'), 
-            'categoryDesc' => $request->input('categoryDesc') 
+            'categoryDesc' => $request->input('categoryDesc'),
+            'languageId' => DB::table('languages')
+                                ->select('languageId')
+                                ->where('languageName', $request->input('languageName'))
+                                ->get(),
         ]);
 
         return redirect('/categories')->with('success', 'Category has been added');
