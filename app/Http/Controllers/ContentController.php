@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Content;
+use App\Models\Category;
 
 class ContentController extends Controller
 {
@@ -27,7 +28,11 @@ class ContentController extends Controller
      */
     public function create()
     {
-        return view('contents.create');
+        $categories = Category::all();
+
+        return view('contents.create', [
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -45,11 +50,16 @@ class ContentController extends Controller
             'contentImage' => '',
         ]);
 
+        $category = Category::select('categoryId')
+                            ->where('categoryName', $request->categoryName)
+                            ->get();
+
         Content::insert([
             'contentName' => $request->input('contentName'), 
             'contentDesc' => $request->input('contentDesc'),
             'contentType' => $request->input('contentType'),
             'contentImage' => $request->input('contentImage'),
+            'categoryId' => $category[0]->categoryId,
         ]);
 
         return redirect('/contents')->with('success', 'Content has been added');

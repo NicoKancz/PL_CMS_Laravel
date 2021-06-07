@@ -24,7 +24,7 @@ class CategoryTest extends TestCase
         $response = $this->post('/categories', [
             'categoryName' => 'test',
             'categoryDesc' => 'testing',
-            'languageId' => 1,
+            'languageId' => 'PHP',
         ]);
 
         $response->assertStatus(302);

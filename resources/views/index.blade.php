@@ -21,7 +21,7 @@
     <div class="row tw-py-4">
         @foreach($languages as $language)
         <div class="col-md-3 tw-text-center">
-            <a href="{{route('language')}}">
+            <a href="{{route('language', $language->languageId)}}">
                 {{$language->languageName}}
             </a>
         </div>

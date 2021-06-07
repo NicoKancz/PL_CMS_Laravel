@@ -6,7 +6,7 @@
             <h1>{{$category->categoryName}}</h1>
         </div>
         <div class="col-md-4">
-            <p>{{$category->categoryAppearance}}</p>
+            <p>{{$category->categoryDesc}}</p>
         </div>
         <div class="col-md-4">
             <a href="{{url('/categories/' . $category->categoryId . '/edit')}}">Edit</a><br>

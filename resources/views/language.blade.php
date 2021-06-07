@@ -4,7 +4,7 @@
     @foreach($categories as $category)
     <div class="row">
         <div class="col-md-6">
-            <a href="{{route('category')}}">
+            <a href="{{route('category', $category->categoryId)}}">
                 {{$category->categoryName}}
             </a>
         </div>

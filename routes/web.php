@@ -21,9 +21,9 @@ use App\Http\Controllers\AppController;
 //route to home website
 Route::get('/', [AppController::class, 'index'])->name('index');
 //route to categories of app
-Route::get('/appLanguage', [AppController::class, 'language'])->name('language');
+Route::get('/appLanguage/{id}', [AppController::class, 'language'])->name('language');
 //route to contents of app
-Route::get('/appCategory', [AppController::class, 'category'])->name('category');
+Route::get('/appCategory/{id}', [AppController::class, 'category'])->name('category');
 
 //Routes for language model
 //routes for language crud system

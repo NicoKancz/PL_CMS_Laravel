@@ -33,4 +33,9 @@ class Category extends Model
         'categoryDesc',
         'languageId',
     ];
+
+    public function language()
+    {
+        return $this->belongsTo(Language::class, 'languageId', 'languageId');
+    }
 }

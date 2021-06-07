@@ -6,6 +6,7 @@ use App\Models\App;
 use App\Models\Language;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AppController extends Controller
 {
@@ -26,12 +27,13 @@ class AppController extends Controller
     /**
      * Display a listing of the categories.
      *
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function language()
+    public function language($id)
     {
         $categories = DB::table('categories')
-                        ->join('languages', 'categoryId', '=', 'categoryId')
+                        ->where('languageId', '=', $id)
                         ->get();
 
         return view('language', [
@@ -42,9 +44,10 @@ class AppController extends Controller
     /**
      * Display a listing of the contents.
      *
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function category()
+    public function category($id)
     {
         $categories = DB::table('contents')
                         ->join('categories', 'contentId', '=', 'contentId')

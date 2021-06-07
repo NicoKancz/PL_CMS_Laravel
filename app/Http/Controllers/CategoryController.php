@@ -47,16 +47,16 @@ class CategoryController extends Controller
         $request->validate([
             'categoryName' => 'required',
             'categoryDesc' => '',
-            'languageId' => 'required',
         ]);
+
+        $language = Language::select('languageId')
+                            ->where('languageName', $request->languageName)
+                            ->get();
 
         Category::insert([
             'categoryName' => $request->input('categoryName'), 
             'categoryDesc' => $request->input('categoryDesc'),
-            'languageId' => DB::table('languages')
-                                ->select('languageId')
-                                ->where('languageName', $request->input('languageName'))
-                                ->get(),
+            'languageId' => $language[0]->languageId,
         ]);
 
         return redirect('/categories')->with('success', 'Category has been added');

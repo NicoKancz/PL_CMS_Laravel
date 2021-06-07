@@ -29,6 +29,14 @@
                     <label for="ContentImage">Content Image</label>
                     <input type="text" name="ContentImage" placeholder="Image">
                 </div>
+                <div class="form-group">
+                    <label for="categoryName">Category</label><br>
+                    <select name="categoryName">
+                        @foreach($categories as $category)
+                        <option value="{{$category->categoryName}}">{{$category->categoryName}}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <input type="submit" name="" value="Submit">
             </form>
         </div>
