@@ -17,7 +17,7 @@
                 <category>{{ $content->categoryId }}</category>
                 <author><![CDATA[{{ $content->userId  }}]]></author>
                 <guid>{{ $content->contentId }}</guid>
-                <pubDate>{{ $content->created_at->toRssString() }}</pubDate>
+                <pubDate>{{ $content->created_at }}</pubDate>
             </item>
         @endforeach
     </channel>

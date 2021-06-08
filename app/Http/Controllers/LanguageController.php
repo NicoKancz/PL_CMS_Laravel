@@ -46,7 +46,9 @@ class LanguageController extends Controller
 
         Language::insert([
             'languageName' => $request->input('languageName'), 
-            'languageAppearance' => $request->input('languageAppearance') 
+            'languageAppearance' => $request->input('languageAppearance'),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         return redirect('/languages')->with('success', 'Language has been added');

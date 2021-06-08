@@ -57,6 +57,8 @@ class CategoryController extends Controller
             'categoryName' => $request->input('categoryName'), 
             'categoryDesc' => $request->input('categoryDesc'),
             'languageId' => $language[0]->languageId,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         return redirect('/categories')->with('success', 'Category has been added');

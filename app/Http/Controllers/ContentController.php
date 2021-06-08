@@ -60,6 +60,8 @@ class ContentController extends Controller
             'contentType' => $request->input('contentType'),
             'contentImage' => $request->input('contentImage'),
             'categoryId' => $category[0]->categoryId,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         return redirect('/contents')->with('success', 'Content has been added');

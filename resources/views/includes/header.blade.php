@@ -44,8 +44,8 @@
                                 href="{{url('/comments')}}">Comments</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link <?=Route::currentRouteName() == 'feed' ? 'active' : '';?>" 
-                                href="{{url('/feed')}}">RSS Feed</a>
+                                <a class="nav-link <?=Route::currentRouteName() == 'news' ? 'active' : '';?>" 
+                                href="{{url('/news')}}">News</a>
                             </li>
                         </ul>
                          <!-- Right Side Of Navbar -->

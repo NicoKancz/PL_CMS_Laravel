@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\RssFeedController;
 
 /*
@@ -65,6 +66,9 @@ Route::get('/comments/{id}', [CommentController::class, 'show']);
 Route::get('/comments/{id}/edit', [CommentController::class, 'edit']);
 Route::patch('/comments/{id}', [CommentController::class, 'update']);
 Route::delete('/comments/{id}', [CommentController::class, 'destroy']);
+
+//Route for news on the website
+Route::get('/news', [NewsController::class, 'index'])->name('news');
 
 //RSS feed route
 Route::get('/feed', [RssFeedController::class, 'feed'])->name('feed');
