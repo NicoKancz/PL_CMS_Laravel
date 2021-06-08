@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\RssFeedController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,9 +66,8 @@ Route::get('/comments/{id}/edit', [CommentController::class, 'edit']);
 Route::patch('/comments/{id}', [CommentController::class, 'update']);
 Route::delete('/comments/{id}', [CommentController::class, 'destroy']);
 
-//for testing purpose
-Route::get('feedback', function(){
-    return "You've been clicked, punk";
-});
+//RSS feed route
+Route::get('/feed', [RssFeedController::class, 'feed'])->name('feed');
 
+//Authentication routes
 Auth::routes();
