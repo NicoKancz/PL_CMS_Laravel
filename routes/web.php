@@ -27,6 +27,10 @@ Route::get('/appLanguage/{id}', [AppController::class, 'language'])->name('langu
 //route to contents of app
 Route::get('/appCategory/{id}', [AppController::class, 'category'])->name('category');
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
 //Routes for language model
 //routes for language crud system
 Route::get('/languages', [LanguageController::class, 'index'])->name('languages');
@@ -74,4 +78,4 @@ Route::get('/news', [NewsController::class, 'index'])->name('news');
 Route::get('/feed', [RssFeedController::class, 'feed'])->name('feed');
 
 //Authentication routes
-Auth::routes();
+require __DIR__.'/auth.php';
