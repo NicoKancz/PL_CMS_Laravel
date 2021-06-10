@@ -41,12 +41,19 @@ class LanguageController extends Controller
     {
         $request->validate([
             'languageName' => 'required',
-            'languageAppearance' => 'required'
+            'languageAppearance' => 'required',
+            'languageImage' => '',
         ]);
+
+        $imageFile = $request->file('languageImage');
+        $destinationPath = 'public/img/';
+        $originalFile = $imageFile->getClientOriginalName();
+        $imageFile->move($destinationPath, $originalFile);
 
         Language::insert([
             'languageName' => $request->input('languageName'), 
             'languageAppearance' => $request->input('languageAppearance'),
+            'languageImage' => $originalFile,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
         ]);
@@ -95,14 +102,21 @@ class LanguageController extends Controller
     {
         $request->validate([
             'languageName' => 'required',
-            'languageAppearance' => 'required'
+            'languageAppearance' => 'required',
+            'languageImage' => '',
         ]);
 
         $language = Language::find($id);
 
+        $imageFile = $request->file('languageImage');
+        $destinationPath = 'public/img/';
+        $originalFile = $imageFile->getClientOriginalName();
+        $imageFile->move($destinationPath, $originalFile);
+
         $language->update([
             'languageName' => $request->input('languageName'), 
-            'languageAppearance' => $request->input('languageAppearance') 
+            'languageAppearance' => $request->input('languageAppearance'),
+            'languageImage' => $originalFile, 
         ]);
 
         return redirect('/languages/' . $id)->with('success', 'Language has been updated');

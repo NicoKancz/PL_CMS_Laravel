@@ -24,7 +24,7 @@
         @foreach($languages as $language)
         <div class="col-md-3 tw-text-center">
             <a href="{{route('language', $language->languageId)}}">
-                {{$language->languageName}}
+                <img class="tw-bg-cover tw-w-76 tw-h-52" src="{{asset('public/img/' . $language->languageImage)}}" alt="">
             </a>
         </div>
         @endforeach

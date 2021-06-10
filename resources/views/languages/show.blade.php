@@ -2,6 +2,14 @@
 
 @section('content')
     <div class="row">
+        <div class="col-md-12">
+            <img class="tw-object-cover tw-w-76 tw-h-52" 
+                src="{{asset('public/img/' . $language->languageImage)}}" 
+                alt="{{$language->languageImage}}">
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-4">
             <h1>{{$language->languageName}}</h1>
         </div>

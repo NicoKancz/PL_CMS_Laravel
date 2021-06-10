@@ -11,7 +11,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form action="{{url('/languages/' . $language->languageId)}}" method="post">
+            <form action="{{url('/languages/' . $language->languageId)}}" method="post" enctype="multipart/form-data">
                 @method('PATCH')
                 @csrf
                 <div class="form-group">
@@ -21,6 +21,10 @@
                 <div class="form-group">
                     <label for="languageAppearance">Language Year of Appearance</label>
                     <input type="number" name="languageAppearance" value="{{$language->languageAppearance}}">
+                </div>
+                <div class="form-group">
+                    <label for="languageImage">Language Image</label>
+                    <input type="file" name="languageImage" accept="image/*">
                 </div>
                 <input type="submit" name="" value="Submit">
             </form>
