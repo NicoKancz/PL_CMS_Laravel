@@ -3,10 +3,10 @@
 @section('content')
     <div class="row">
         <div class="col-md-4">
-            <h1>{{$content->contentName}}</h1>
+            <h1>{{$content->contentTitle}}</h1>
         </div>
         <div class="col-md-4">
-            <p>{{$content->contentAppearance}}</p>
+            <p>{{$content->created_at}}</p>
         </div>
         <div class="col-md-4">
             <a href="{{url('/contents/' . $content->contentId . '/edit')}}">Edit</a><br>

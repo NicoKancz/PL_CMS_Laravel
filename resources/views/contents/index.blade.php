@@ -9,7 +9,7 @@
         </div>
         @foreach ($contents as $content)
         <div class="col-md-3">
-            <a href="{{url('/contents/' . $content->contentId)}}">{{$content->contentName}}</a>
+            <a href="{{url('/contents/' . $content->contentId)}}">{{$content->contentTitle}}</a>
         </div>
         @endforeach
     </div>

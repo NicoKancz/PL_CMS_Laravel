@@ -20,9 +20,7 @@
                 </div>
                 <div class="form-group">
                     <label for="categoryDesc">Category Description</label>
-                    <textarea type="number" name="categoryDesc">
-                        {{$category->categoryAppearance}}
-                    </textarea>
+                    <textarea type="number" name="categoryDesc">{{$category->categoryDesc}}</textarea>
                 </div>
                 <input type="submit" name="" value="Submit">
             </form>

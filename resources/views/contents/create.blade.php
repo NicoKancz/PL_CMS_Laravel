@@ -14,20 +14,23 @@
             <form action="{{url('/contents')}}" method="post">
                 @csrf
                 <div class="form-group">
-                    <label for="ContentName">Content Name</label>
-                    <input type="text" name="ContentName" placeholder="Name">
+                    <label for="contentTitle">Content Name</label>
+                    <input type="text" name="contentTitle" placeholder="Title">
                 </div>
                 <div class="form-group">
-                    <label for="ContentDesc">Content Description</label>
-                    <textarea type="number" name="ContentDesc">Description of the Content</textarea>
+                    <label for="contentDesc">Content Description</label>
+                    <textarea type="number" name="contentDesc">Description of the Content</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="ContentType">Content Type</label>
-                    <input type="text" name="ContentType" placeholder="Type">
+                    <label for="contentStatus">Content Status</label>
+                    <select name="contentStatus">
+                        <option value="published">Published</option>
+                        <option value="draft">Draft</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="ContentImage">Content Image</label>
-                    <input type="text" name="ContentImage" placeholder="Image">
+                    <label for="contentImage">Content Image</label>
+                    <input type="text" name="contentImage" placeholder="Image">
                 </div>
                 <div class="form-group">
                     <label for="categoryName">Category</label><br>

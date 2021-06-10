@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Content;
 use App\Models\Category;
 
@@ -44,9 +45,8 @@ class ContentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'contentName' => 'required',
+            'contentTitle' => 'required',
             'contentDesc' => '',
-            'contentType' => 'required',
             'contentImage' => '',
         ]);
 
@@ -55,15 +55,15 @@ class ContentController extends Controller
                             ->get();
 
         Content::insert([
-            'contentName' => $request->input('contentName'), 
+            'contentTitle' => $request->input('contentTitle'), 
             'contentDesc' => $request->input('contentDesc'),
-            'contentType' => $request->input('contentType'),
             'contentImage' => $request->input('contentImage'),
             'categoryId' => $category[0]->categoryId,
+            'userId' => Auth::user()->userId,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
         ]);
-
+        
         return redirect('/contents')->with('success', 'Content has been added');
     }
 
@@ -107,18 +107,16 @@ class ContentController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'contentName' => 'required',
+            'contentTitle' => 'required',
             'contentDesc' => '',
-            'contentType' => 'required',
             'contentImage' => '',
         ]);
 
         $content = Content::find($id);
 
         $content->update([
-            'contentName' => $request->input('contentName'), 
+            'contentTitle' => $request->input('contentTitle'), 
             'contentDesc' => $request->input('contentDesc'),
-            'contentType' => $request->input('contentType'),
             'contentImage' => $request->input('contentImage'),
         ]);
 
