@@ -29,9 +29,12 @@ create table if not exists users(
     userId int not null auto_increment,
     userName varchar(255) not null,
     userEmail varchar(255) not null,
-    userPassword varchar(255) not null,
+    userEmail_verified_at date null,
+    password varchar(255) not null,
     userRole int not null,
-    userRegDate date not null,
+    remember_token varchar(100) null,
+    created_at date null,
+    updated_at date null,
     primary key (userId),
     foreign key (userRole) references roles(roleId)
 );

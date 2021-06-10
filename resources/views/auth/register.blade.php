@@ -17,16 +17,16 @@
 
             <!-- Name -->
             <div>
-                <x-label for="name" :value="__('Name')" />
+                <x-label for="userName" :value="__('Name')" />
 
-                <x-input id="name" class="tw-block tw-mt-1 tw-w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input id="userName" class="tw-block tw-mt-1 tw-w-full" type="text" name="userName" :value="old('userName')" required autofocus />
             </div>
 
             <!-- Email Address -->
             <div class="tw-mt-4">
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="userEmail" :value="__('Email')" />
 
-                <x-input id="email" class="tw-block tw-mt-1 tw-w-full" type="email" name="email" :value="old('email')" required />
+                <x-input id="userEmail" class="tw-block tw-mt-1 tw-w-full" type="email" name="userEmail" :value="old('userEmail')" required />
             </div>
 
             <!-- Password -->

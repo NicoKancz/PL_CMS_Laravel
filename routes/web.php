@@ -27,13 +27,9 @@ Route::get('/appLanguage/{id}', [AppController::class, 'language'])->name('langu
 //route to contents of app
 Route::get('/appCategory/{id}', [AppController::class, 'category'])->name('category');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 //Routes for language model
 //routes for language crud system
-Route::get('/languages', [LanguageController::class, 'index'])->name('languages');
+Route::get('/languages', [LanguageController::class, 'index'])->middleware(['auth'])->name('languages');
 Route::get('/languages/create', [LanguageController::class, 'create']);
 Route::post('/languages', [LanguageController::class, 'store']);
 Route::get('/languages/{id}', [LanguageController::class, 'show']);
@@ -43,7 +39,7 @@ Route::delete('/languages/{id}', [LanguageController::class, 'destroy']);
 
 //Routes for category model
 //routes for category crud system
-Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+Route::get('/categories', [CategoryController::class, 'index'])->middleware(['auth'])->name('categories');
 Route::get('/categories/create', [CategoryController::class, 'create']);
 Route::post('/categories', [CategoryController::class, 'store']);
 Route::get('/categories/{id}', [CategoryController::class, 'show']);
@@ -53,7 +49,7 @@ Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
 
 //Routes for content model
 //routes for content crud system
-Route::get('/contents', [ContentController::class, 'index'])->name('contents');
+Route::get('/contents', [ContentController::class, 'index'])->middleware(['auth'])->name('contents');
 Route::get('/contents/create', [ContentController::class, 'create']);
 Route::post('/contents', [ContentController::class, 'store']);
 Route::get('/contents/{id}', [ContentController::class, 'show']);
@@ -63,7 +59,7 @@ Route::delete('/contents/{id}', [ContentController::class, 'destroy']);
 
 //Routes for comment model
 //routes for comment crud system
-Route::get('/comments', [CommentController::class, 'index'])->name('comments');
+Route::get('/comments', [CommentController::class, 'index'])->middleware(['auth'])->name('comments');
 Route::get('/comments/create', [CommentController::class, 'create']);
 Route::post('/comments', [CommentController::class, 'store']);
 Route::get('/comments/{id}', [CommentController::class, 'show']);

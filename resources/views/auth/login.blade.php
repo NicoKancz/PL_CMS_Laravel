@@ -20,9 +20,9 @@
 
             <!-- Email Address -->
             <div>
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="userEmail" :value="__('Email')" />
 
-                <x-input id="email" class="tw-block tw-mt-1 tw-w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input id="email" class="tw-block tw-mt-1 tw-w-full" type="email" name="userEmail" :value="old('email')" required autofocus />
             </div>
 
             <!-- Password -->

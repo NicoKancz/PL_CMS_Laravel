@@ -1,5 +1,5 @@
         @include('includes.header')
-        <main class="container py-4 tw-max-w-full">
+        <main class="container tw-py-4 tw-max-w-full">
             @yield('content')
         </main>
         <!-- Scripts -->
