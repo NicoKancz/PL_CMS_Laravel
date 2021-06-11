@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\App;
 use App\Models\Language;
 use App\Models\Category;
+use App\Models\Content;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -49,13 +50,31 @@ class AppController extends Controller
      */
     public function category($id)
     {
-        $categories = DB::table('contents')
-                        ->join('categories', 'contentId', '=', 'contentId')
-                        ->join('users', 'contentId', '=', 'contentId')
+        $contents = DB::table('contents')
+                        ->where('categoryId', '=', $id)
                         ->get();
 
-        return view('language', [
-            'categories' => $categories,
+        $languageId = Category::where('categoryId', '=', $id)
+                                ->value('languageId');
+
+        return view('category', [
+            'contents' => $contents,
+            'languageId' => $languageId,
+        ]);
+    }
+
+    /**
+     * Display a listing of the contents.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function content($id)
+    {
+        $content = Content::find($id);
+
+        return view('content', [
+            'content' => $content,
         ]);
     }
 

@@ -22,10 +22,12 @@ use App\Http\Controllers\RssFeedController;
 
 //route to home website
 Route::get('/', [AppController::class, 'index'])->name('index');
-//route to categories of app
+//route to categories
 Route::get('/appLanguage/{id}', [AppController::class, 'language'])->name('language');
-//route to contents of app
+//route to contents
 Route::get('/appCategory/{id}', [AppController::class, 'category'])->name('category');
+//route to show specific content
+Route::get('/appContent/{id}', [AppController::class, 'content'])->name('content');
 
 //Routes for language model
 //routes for language crud system

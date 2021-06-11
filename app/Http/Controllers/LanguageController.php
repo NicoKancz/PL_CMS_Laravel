@@ -51,7 +51,7 @@ class LanguageController extends Controller
         $imageFile->move($destinationPath, $originalFile);
 
         Language::insert([
-            'languageName' => $request->input('languageName'), 
+            'languageName' => $request->input('languageName'),
             'languageAppearance' => $request->input('languageAppearance'),
             'languageImage' => $originalFile,
             'created_at' => \Carbon\Carbon::now(),
