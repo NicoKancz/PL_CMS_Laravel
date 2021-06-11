@@ -16,11 +16,9 @@
                 @csrf
                 <div class="form-group">
                     <label for="commentText">Comment Text</label>
-                    <textarea type="number" name="commentText">
-                        {{$comment->commentText}}
-                    </textarea>
+                    <textarea type="number" name="commentText">{{$comment->commentText}}</textarea>
                 </div>
-                <input type="submit" name="" value="Submit">
+                <input type="submit" value="Submit">
             </form>
         </div>
     </div>

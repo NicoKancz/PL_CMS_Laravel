@@ -28,6 +28,7 @@ Route::get('/appLanguage/{id}', [AppController::class, 'language'])->name('langu
 Route::get('/appCategory/{id}', [AppController::class, 'category'])->name('category');
 //route to show specific content
 Route::get('/appContent/{id}', [AppController::class, 'content'])->name('content');
+Route::post('/appContent/{id}', [CommentController::class, 'store']);
 
 //Routes for language model
 //routes for language crud system
@@ -62,8 +63,6 @@ Route::delete('/contents/{id}', [ContentController::class, 'destroy']);
 //Routes for comment model
 //routes for comment crud system
 Route::get('/comments', [CommentController::class, 'index'])->middleware(['auth'])->name('comments');
-Route::get('/comments/create', [CommentController::class, 'create']);
-Route::post('/comments', [CommentController::class, 'store']);
 Route::get('/comments/{id}', [CommentController::class, 'show']);
 Route::get('/comments/{id}/edit', [CommentController::class, 'edit']);
 Route::patch('/comments/{id}', [CommentController::class, 'update']);

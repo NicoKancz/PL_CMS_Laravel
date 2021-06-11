@@ -6,6 +6,7 @@ use App\Models\App;
 use App\Models\Language;
 use App\Models\Category;
 use App\Models\Content;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -71,10 +72,14 @@ class AppController extends Controller
      */
     public function content($id)
     {
-        $content = Content::find($id);
+        $content = Content::find($id); 
+
+        $comments = Comment::where('contentId', '=', $id)
+                            ->get();
 
         return view('content', [
             'content' => $content,
+            'comments' => $comments,
         ]);
     }
 

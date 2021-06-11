@@ -22,9 +22,9 @@
     @endauth
     <div class="row tw-py-4">
         @foreach($languages as $language)
-        <div class="col-md-3 tw-text-center">
+        <div class="col-md-3">
             <a href="{{route('language', $language->languageId)}}">
-                <img class="tw-bg-cover tw-w-76 tw-h-52" src="{{asset('public/img/' . $language->languageImage)}}" alt="">
+                <img class="tw-bg-cover tw-mx-auto tw-w-76 tw-h-52" src="{{asset('public/img/' . $language->languageImage)}}" alt="">
             </a>
         </div>
         @endforeach

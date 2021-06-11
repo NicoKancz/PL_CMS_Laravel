@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <h1 class="tw-text-2xl tw-font-bold">The Contents</h1>
+            <h1 class="tw-text-2xl tw-font-bold">The contents</h1>
             <a href="{{url('/contents/create')}}">Create Content</a>
             <p></p>
         </div>
