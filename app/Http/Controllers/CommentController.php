@@ -49,21 +49,6 @@ class CommentController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $comment = Comment::find($id);
-
-        return view('comments.show', [
-            'comment' => $comment,
-        ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id

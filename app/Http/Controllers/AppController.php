@@ -38,8 +38,11 @@ class AppController extends Controller
                         ->where('languageId', '=', $id)
                         ->get();
 
+        $language = Language::find($id);
+
         return view('language', [
             'categories' => $categories,
+            'language' => $language,
         ]);
     }
 
@@ -55,12 +58,15 @@ class AppController extends Controller
                         ->where('categoryId', '=', $id)
                         ->get();
 
+        $category = Category::find($id);
+
         $languageId = Category::where('categoryId', '=', $id)
                                 ->value('languageId');
 
         return view('category', [
             'contents' => $contents,
             'languageId' => $languageId,
+            'category' => $category,
         ]);
     }
 
