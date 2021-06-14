@@ -12,6 +12,8 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                karma: ['karma'],
+                monument: ['monument'],
             },
         },
     },

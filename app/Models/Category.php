@@ -38,4 +38,9 @@ class Category extends Model
     {
         return $this->belongsTo(Language::class, 'languageId', 'languageId');
     }
+
+    public function contents()
+    {
+        return $this->hasMany(Content::class, 'categoryId', 'categoryId');
+    }
 }

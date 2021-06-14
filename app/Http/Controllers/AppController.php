@@ -34,8 +34,7 @@ class AppController extends Controller
      */
     public function language($id)
     {
-        $categories = DB::table('categories')
-                        ->where('languageId', '=', $id)
+        $categories = Category::where('languageId', '=', $id)
                         ->get();
 
         $language = Language::find($id);
