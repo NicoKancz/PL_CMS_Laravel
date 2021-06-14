@@ -77,6 +77,7 @@ Route::middleware(['auth'])->group(function () {
 
 //Route for news on the website
 Route::get('/news', [NewsController::class, 'index'])->name('news');
+Route::get('/news/content', [NewsController::class, 'content'])->name('newsContent');
 
 //RSS feed route
 Route::get('/feed', [RssFeedController::class, 'feed'])->name('feed');

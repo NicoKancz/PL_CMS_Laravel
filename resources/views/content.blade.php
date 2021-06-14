@@ -28,13 +28,17 @@
         </div>
         @endforeach
     </div>
+    @auth
     <div class="row">
         <div class="col-md-12">
+            <h2 class="tw-text-2xl">Add a comment</h2>
             <form action="{{route('content', $content->contentId)}}" method="post">
                 @csrf
                 <textarea type="number" name="commentText"></textarea><br>
-                <input type="submit" value="Submit">
+                <input class="tw-font-bold tw-bg-blue-200 tw-border-gray-700 tw-border-2 tw-rounded-lg tw-p-1" 
+                    type="submit" value="Submit">
             </form>
         </div>
     </div>
+    @endauth
 @endsection

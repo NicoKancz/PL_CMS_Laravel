@@ -9,7 +9,7 @@
         <link rel="icon" href="{{ asset('public/img/pl_cmsLogo.png') }}" type="image/x-icon"/>
         <title>PL_CMS</title>
     </head>
-    <body class="tw-bg-gradient-to-t tw-from-blue-600 tw-via-gray-300 tw-to-white tw-bg-no-repeat">
+    <body class="tw-bg-gradient-to-t tw-from-blue-600 tw-via-red-100 tw-to-white tw-bg-no-repeat">
         <header class="">
             <nav class="navbar navbar-expand-lg navbar-light tw-shadow-md">
                 <div class="container-fluid">
