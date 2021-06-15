@@ -40,9 +40,11 @@ class LanguageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'languageName' => 'required',
-            'languageAppearance' => 'required',
-            'languageImage' => '',
+            'languageName' => 'required|max:55',
+            'languageAppearance' => 'required|numeric|digits:4',
+            'languageImage' => 'nullable|max:255',
+            'created_at' => 'nullable|date',
+            'updated_at' => 'nullable|date',
         ]);
 
         $imageFile = $request->file('languageImage');
@@ -100,26 +102,30 @@ class LanguageController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $originalFile = 'none';
+
         $request->validate([
-            'languageName' => 'required',
-            'languageAppearance' => 'required',
-            'languageImage' => '',
+            'languageName' => 'required|max:55',
+            'languageAppearance' => 'required|numeric|digits:4',
+            'languageImage' => 'nullable|max:255',
         ]);
 
         $language = Language::find($id);
-
-        $imageFile = $request->file('languageImage');
-        $destinationPath = 'public/img/';
-        $originalFile = $imageFile->getClientOriginalName();
-        $imageFile->move($destinationPath, $originalFile);
+        
+        if($request->hasFile('languageImage')){
+            $imageFile = $request->file('languageImage');
+            $destinationPath = 'public/img/';
+            $originalFile = $imageFile->getClientOriginalName();
+            $imageFile->move($destinationPath, $originalFile);
+        }
 
         $language->update([
-            'languageName' => $request->input('languageName'), 
+            'languageName' => $request->input('languageName'),
             'languageAppearance' => $request->input('languageAppearance'),
-            'languageImage' => $originalFile, 
+            'languageImage' => $originalFile,
         ]);
 
-        return redirect('/languages/' . $id)->with('success', 'Language has been updated');
+        return redirect('/languages')->with('success', 'Language has been updated');
     }
 
     /**

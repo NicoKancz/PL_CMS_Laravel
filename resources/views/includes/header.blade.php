@@ -9,8 +9,8 @@
         <link rel="icon" href="{{ asset('public/img/pl_cmsLogo.png') }}" type="image/x-icon"/>
         <title>PL_CMS</title>
     </head>
-    <body class="tw-bg-gradient-to-t tw-from-blue-600 tw-via-red-100 tw-to-white tw-bg-no-repeat">
-        <header class="">
+    <body class="tw-fixed tw-bg-gradient-to-t tw-from-blue-600 tw-via-red-100 tw-to-white tw-bg-no-repeat">
+        <header class="tw-w-screen">
             <nav class="navbar navbar-expand-lg navbar-light tw-shadow-md">
                 <div class="container-fluid">
                     <a class="navbar-brand tw-font-monument tw-font-bold tw-text-3xl tw-border-r-2 tw-pr-2 tw-m-0" href="{{url('/')}}">PL CMS</a>

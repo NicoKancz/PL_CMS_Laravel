@@ -82,7 +82,7 @@ class CommentController extends Controller
             'commentText' => $request->input('commentText'), 
         ]);
 
-        return redirect('/comments/' . $id)->with('success', 'Comment has been updated');
+        return redirect('/comments')->with('success', 'Comment has been updated');
     }
 
     /**

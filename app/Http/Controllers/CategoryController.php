@@ -115,7 +115,7 @@ class CategoryController extends Controller
             'categoryDesc' => $request->input('categoryDesc') 
         ]);
 
-        return redirect('/categories/' . $id)->with('success', 'Category has been updated');
+        return redirect('/categories')->with('success', 'Category has been updated');
     }
 
     /**

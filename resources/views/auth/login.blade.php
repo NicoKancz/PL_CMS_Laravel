@@ -38,14 +38,17 @@
             <!-- Remember Me -->
             <div class="tw-block tw-mt-4">
                 <label for="remember_me" class="tw-inline-flex tw-items-center">
-                    <input id="remember_me" type="checkbox" class="tw-rounded tw-border-gray-300 tw-text-indigo-600 tw-shadow-sm tw-focus:border-indigo-300 tw-focus:ring tw-focus:ring-indigo-200 tw-focus:ring-opacity-50" name="remember">
+                    <input id="remember_me" type="checkbox" 
+                        class="tw-rounded tw-border-gray-300 tw-text-indigo-600 tw-shadow-sm 
+                            focus:tw-border-indigo-300 focus:tw-ring focus:tw-ring-indigo-200 focus:tw-ring-opacity-50" 
+                        name="remember">
                     <span class="tw-ml-2 tw-text-sm tw-text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
 
             <div class="tw-flex tw-items-center tw-justify-end tw-mt-4">
                 @if (Route::has('password.request'))
-                    <a class="tw-underline tw-text-sm tw-text-gray-600 tw-hover:text-gray-900" href="{{ route('password.request') }}">
+                    <a class="tw-underline tw-text-sm tw-text-gray-600 hover:tw-text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif

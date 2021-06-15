@@ -120,7 +120,7 @@ class ContentController extends Controller
             'contentImage' => $request->input('contentImage'),
         ]);
 
-        return redirect('/contents/' . $id)->with('success', 'Content has been updated');
+        return redirect('/contents')->with('success', 'Content has been updated');
     }
 
     /**

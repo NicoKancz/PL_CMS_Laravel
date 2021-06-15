@@ -29,8 +29,12 @@
         @foreach($languages as $language)
         <div class="col-md-3">
             <a href="{{route('language', $language->languageId)}}">
-                <img class="tw-bg-cover tw-mx-auto md:tw-w-76 md:tw-h-52 md:tw-my-6" 
-                    src="{{asset('public/img/' . $language->languageImage)}}" alt="">
+                @if($language->languageImage == 'none')
+                    <h2 class="tw-text-center tw-text-2xl tw-font-bold">{{$language->languageName}}</h2>
+                @else
+                    <img class="tw-bg-cover tw-mx-auto md:tw-w-76 md:tw-h-52 md:tw-my-6" 
+                        src="{{asset('public/img/' . $language->languageImage)}}" alt="">
+                @endif
             </a>
         </div>
         @endforeach

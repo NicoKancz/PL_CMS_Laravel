@@ -49,7 +49,7 @@
             </div>
 
             <div class="tw-flex tw-items-center tw-justify-end tw-mt-4">
-                <a class="tw-underline tw-text-sm tw-text-gray-600 tw-hover:text-gray-900" href="{{ route('login') }}">
+                <a class="tw-underline tw-text-sm tw-text-gray-600 hover:tw-text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
 

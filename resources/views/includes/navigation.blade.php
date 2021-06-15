@@ -18,17 +18,17 @@
         </li>
         <li class="nav-item">
             <div class="dropdown">
-                <button class="dropdown-toggle tw-font-bold tw-text-xl tw-mx-2 tw-bg-opacity-100
+                <button class="dropdown-toggle tw-font-bold tw-text-xl tw-bg-opacity-100
                                 nav-link <?=Route::currentRouteName() == 'newsContent' ? 'active' : '';?>" 
                         type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     News
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="nav-link" 
+                    <a class="nav-link hover:tw-bg-gray-400" 
                         href="{{route('newsCategory')}}">Category</a>
-                    <a class="nav-link" 
+                    <a class="nav-link hover:tw-bg-gray-400" 
                         href="{{url('/news/content')}}">Content</a>
-                    <a class="nav-link" 
+                    <a class="nav-link hover:tw-bg-gray-400" 
                         href="{{route('newsComment')}}">Comment</a>
                 </div>
             </div>

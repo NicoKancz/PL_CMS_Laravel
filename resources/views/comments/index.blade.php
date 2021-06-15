@@ -9,10 +9,10 @@
 
     <div class="row">
         <div class="col-md-2 tw-bg-white tw-bg-opacity-50">
-            <h2 class="tw-font-bold tw-text-lg">Creator</h2>
+            <h2 class="tw-font-bold tw-text-lg">User</h2>
         </div>
         <div class="col-md-4 tw-bg-white tw-bg-opacity-50">
-            <h2 class="tw-font-bold tw-text-lg">Text</h2>
+            <h2 class="tw-font-bold tw-text-lg">Comment Text</h2>
         </div>
         <div class="col-md-4 tw-bg-white tw-bg-opacity-50">
             <h2 class="tw-font-bold tw-text-lg">Content</h2>
@@ -44,5 +44,4 @@
         </div>
     </div>
     @endforeach
-    
 @endsection
