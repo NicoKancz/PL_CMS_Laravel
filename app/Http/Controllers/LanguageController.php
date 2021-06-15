@@ -42,7 +42,7 @@ class LanguageController extends Controller
         $request->validate([
             'languageName' => 'required|max:55',
             'languageAppearance' => 'required|numeric|digits:4',
-            'languageImage' => 'nullable|max:255',
+            'languageImage' => 'nullable|file|max:255',
             'created_at' => 'nullable|date',
             'updated_at' => 'nullable|date',
         ]);

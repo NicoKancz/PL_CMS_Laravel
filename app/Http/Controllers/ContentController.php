@@ -45,14 +45,16 @@ class ContentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'contentTitle' => 'required',
-            'contentDesc' => '',
-            'contentImage' => '',
+            'contentTitle' => 'required|max:255',
+            'contentDesc' => 'required',
+            'contentStatus' => 'required|max:55',
+            'contentImage' => 'nullable|file|max:255',
+            'created_at' => 'nullable|date',
+            'updated_at' => 'nullable|date',
         ]);
 
-        $category = Category::select('categoryId')
-                            ->where('categoryName', $request->categoryName)
-                            ->get();
+        $category = Category::where('categoryName', $request->categoryName)
+                                ->get('categoryId');
 
         Content::insert([
             'contentTitle' => $request->input('contentTitle'), 
@@ -91,9 +93,11 @@ class ContentController extends Controller
     public function edit($id)
     {
         $content = Content::find($id);
+        $categories = Category::all();
 
         return view('contents.edit', [
-            'content' => $content
+            'content' => $content,
+            'categories' => $categories,
         ]);
     }
 
@@ -107,9 +111,10 @@ class ContentController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'contentTitle' => 'required',
-            'contentDesc' => '',
-            'contentImage' => '',
+            'contentTitle' => 'required|max:255',
+            'contentDesc' => 'required',
+            'contentStatus' => 'required|max:55',
+            'contentImage' => 'nullable|file|max:255',
         ]);
 
         $content = Content::find($id);
@@ -117,6 +122,7 @@ class ContentController extends Controller
         $content->update([
             'contentTitle' => $request->input('contentTitle'), 
             'contentDesc' => $request->input('contentDesc'),
+            'contentStatus' => $request->input('contentStatus'),
             'contentImage' => $request->input('contentImage'),
         ]);
 

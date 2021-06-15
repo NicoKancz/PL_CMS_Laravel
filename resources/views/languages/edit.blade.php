@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">       
         <div class="col-md-11">
-            <h1 class="tw-text-2xl tw-font-bold">Update Language</h1>
+            <h1 class="tw-text-3xl tw-font-bold">Edit Language</h1>
         </div>
         <div class="col-md-1">
             <a href="{{url('/languages/' . $language->languageId)}}">Back</a>

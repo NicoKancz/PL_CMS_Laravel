@@ -45,8 +45,10 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'categoryName' => 'required',
-            'categoryDesc' => '',
+            'categoryName' => 'required|max:55',
+            'categoryDesc' => 'required',
+            'created_at' => 'nullable|date',
+            'updated_at' => 'nullable|date',
         ]);
 
         $language = Language::select('languageId')
@@ -88,9 +90,11 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
+        $languages = Language::all();
 
         return view('categories.edit', [
-            'category' => $category
+            'category' => $category,
+            'languages' => $languages,
         ]);
     }
 
@@ -104,8 +108,8 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'categoryName' => 'required',
-            'categoryDesc' => ''
+            'categoryName' => 'required|max:55',
+            'categoryDesc' => 'required'
         ]);
 
         $category = Category::find($id);
