@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-md-12">
             <a href="{{route('content', $content->contentId)}}">
-                <h2 class="tw-text-xl">{{$content->contentTitle}}</h1>
+                <h2 class="tw-text-xl">{{$content->contentTitle}}</h2>
             </a>
             <p>{{$content->contentDesc}}</p>
             <p>{{$content->created_at}}</p>

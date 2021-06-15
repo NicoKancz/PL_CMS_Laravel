@@ -78,6 +78,8 @@ Route::middleware(['auth'])->group(function () {
 //Route for news on the website
 Route::get('/news', [NewsController::class, 'index'])->name('news');
 Route::get('/news/content', [NewsController::class, 'content'])->name('newsContent');
+Route::get('/news/comment', [NewsController::class, 'comment'])->name('newsComment');
+Route::get('/news/category', [NewsController::class, 'category'])->name('newsCategory');
 
 //RSS feed route
 Route::get('/feed', [RssFeedController::class, 'feed'])->name('feed');

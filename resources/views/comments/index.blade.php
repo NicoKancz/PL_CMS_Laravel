@@ -3,19 +3,19 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <h1 class="tw-text-2xl tw-font-bold">The comments</h1>
+            <h1 class="tw-text-3xl tw-font-bold">The comments</h1>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-2 tw-bg-white tw-bg-opacity-50">
-            <h2>Creator</h2>
+            <h2 class="tw-font-bold tw-text-lg">Creator</h2>
         </div>
         <div class="col-md-4 tw-bg-white tw-bg-opacity-50">
-            <h2>Text</h2>
+            <h2 class="tw-font-bold tw-text-lg">Text</h2>
         </div>
         <div class="col-md-4 tw-bg-white tw-bg-opacity-50">
-            <h2>Content</h2>
+            <h2 class="tw-font-bold tw-text-lg">Content</h2>
         </div>
         <div class="col-md-2 tw-bg-white tw-bg-opacity-50">
         </div>

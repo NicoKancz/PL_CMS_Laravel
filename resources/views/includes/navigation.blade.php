@@ -25,7 +25,11 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="nav-link" 
+                        href="{{route('newsCategory')}}">Category</a>
+                    <a class="nav-link" 
                         href="{{url('/news/content')}}">Content</a>
+                    <a class="nav-link" 
+                        href="{{route('newsComment')}}">Comment</a>
                 </div>
             </div>
         </li>
