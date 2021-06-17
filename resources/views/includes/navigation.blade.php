@@ -28,11 +28,11 @@
                     News
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="nav-link hover:tw-bg-gray-400" 
-                        href="{{route('newsCategory')}}">Category</a>
-                    <a class="nav-link hover:tw-bg-gray-400" 
-                        href="{{url('/news/content')}}">Content</a>
-                    <a class="nav-link hover:tw-bg-gray-400" 
+                    <a class="nav-link tw-text-center hover:tw-bg-blue-400" 
+                        href="{{route('newsCategory')}}">Category</a><hr>
+                    <a class="nav-link tw-text-center hover:tw-bg-blue-400" 
+                        href="{{url('/news/content')}}">Content</a><hr>
+                    <a class="nav-link tw-text-center hover:tw-bg-blue-400" 
                         href="{{route('newsComment')}}">Comment</a>
                 </div>
             </div>

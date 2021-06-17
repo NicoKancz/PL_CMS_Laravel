@@ -18,13 +18,13 @@
                     <button
                         class="navbar-toggler"
                         type="button"
-                        data-mdb-toggle="collapse"
-                        data-mdb-target="#navbarNav"
+                        data-toggle="collapse"
+                        data-target="#navbarNav"
                         aria-controls="navbarNav"
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                         >
-                        <i class="fas fa-bars"></i>
+                        <span class="navbar-toggler-icon"></span>
                     </button>
                     @auth
                         @include('includes.navigation') 
