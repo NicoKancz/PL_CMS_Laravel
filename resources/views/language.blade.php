@@ -9,22 +9,32 @@
     
     <div class="row">
         <div class="col-md-12">
-            <a href="{{route('index')}}">Back</a>
+            <a href="{{route('appLanguages')}}">Back</a>
         </div>
         <hr>
     </div>
 
     <div class="row">
-    @foreach($categories as $category)
+        @foreach($categories as $category)
         <div class="col-md-3">
             <section class="tw-text-base tw-mx-auto tw-w-full tw-h-24 tw-my-4 tw-pt-1 tw-pl-1 tw-rounded-lg tw-bg-blue-500 tw-bg-opacity-50">
                 <a  class="tw-font-bold tw-text-xl"
-                    href="{{route('category', $category->categoryId)}}">
+                    href="{{route('appContents', $category->categoryId)}}">
                     {{$category->categoryName}}
                 </a>
                 <p>Total of content: {{$category->contents->count()}}</p>
             </section>
         </div>
-    @endforeach
+        @endforeach
+        @auth
+        <div class="col-md-3">
+            <section class="tw-text-base tw-mx-auto tw-w-full tw-h-24 tw-my-4 tw-pt-1 tw-pl-1 tw-rounded-lg tw-bg-blue-500 tw-bg-opacity-50">
+                <a  class="tw-font-bold tw-text-xl"
+                    href="{{url('/appCategories/' . $category->languageId . '/create')}}">
+                    + Add a new category
+                </a>
+            </section>
+        </div>
+        @endauth
     </div>
 @endsection

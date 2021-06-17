@@ -27,12 +27,54 @@ class AppController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function languageCreate()
+    {
+        return view('languages.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function languageStore(Request $request)
+    {
+        $request->validate([
+            'languageName' => 'required|max:55',
+            'languageAppearance' => 'required|numeric|digits:4',
+            'languageImage' => 'nullable|file|max:255',
+            'created_at' => 'nullable|date',
+            'updated_at' => 'nullable|date',
+        ]);
+
+        $imageFile = $request->file('languageImage');
+        $destinationPath = 'public/img/';
+        $originalFile = $imageFile->getClientOriginalName();
+        $imageFile->move($destinationPath, $originalFile);
+
+        Language::insert([
+            'languageName' => $request->input('languageName'),
+            'languageAppearance' => $request->input('languageAppearance'),
+            'languageImage' => $originalFile,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        return redirect('/languages')->with('success', 'Language has been added');
+    }
+
+    /**
      * Display a listing of the categories.
      *
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function language($id)
+    public function categories($id)
     {
         $categories = Category::where('languageId', '=', $id)
                         ->get();
@@ -46,12 +88,53 @@ class AppController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function categoryCreate($id)
+    {
+        $language = Language::find($id);
+
+        return view('categories.appCreate', [
+            'language' => $language,
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function categoryStore(Request $request, $id)
+    {
+        $request->validate([
+            'categoryName' => 'required|max:55',
+            'categoryDesc' => 'required',
+            'created_at' => 'nullable|date',
+            'updated_at' => 'nullable|date',
+        ]);
+
+        Category::insert([
+            'categoryName' => $request->input('categoryName'), 
+            'categoryDesc' => $request->input('categoryDesc'),
+            'languageId' => $id,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        return redirect('/appCategories/' . $id)->with('success', 'Category has been added');
+    }
+
+    /**
      * Display a listing of the contents.
      *
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function category($id)
+    public function contents($id)
     {
         $contents = DB::table('contents')
                         ->where('categoryId', '=', $id)

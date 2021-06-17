@@ -6,12 +6,12 @@
             <h1 class="tw-text-3xl tw-font-bold">Edit Content</h1>
         </div>
         <div class="col-md-1">
-            <a href="{{url('/contents')}}">Back</a>
+            <a href="{{route('contents')}}">Back</a>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form action="{{url('/contents/' . $content->contentId)}}" method="post">
+            <form action="{{url('/contents/' . $content->contentId)}}" method="post" enctype="multipart/form-data">
                 @method('PATCH')
                 @csrf
                 <div class="form-group">
@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="contentStatus">Content Status</label>
+                    <label for="contentStatus">Content Status (Not implemented yet)</label>
                     <select class="form-control @error('contentStatus') is-invalid @enderror" name="contentStatus">
                         <option value="published">Published</option>
                         <option value="draft">Draft</option>

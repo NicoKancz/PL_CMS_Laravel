@@ -11,7 +11,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form action="{{url('/contents')}}" method="post">
+            <form action="{{url('/contents')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="contentTitle">Content Name</label>
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="contentImage">Content Image</label>
+                    <label for="contentImage">Content Image (Not implemented yet)</label>
                     <input type="file" class="form-control @error('contentImage') is-invalid @enderror" name="contentImage" accept="image/*">
                     @error('contentImage')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -49,13 +49,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="languageName">Language</label>
+                    <!-- <label for="languageName">Language</label>
                     <select class="form-control @error('languageName') is-invalid @enderror"
                             name="languageName">
                     </select>
                     @error('languageName')
                         <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    @enderror -->
                     <label for="categoryName">Category</label>
                     <select class="form-control @error('categoryName') is-invalid @enderror"
                             name="categoryName">

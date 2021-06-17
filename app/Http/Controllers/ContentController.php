@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Content;
 use App\Models\Category;
+use App\Models\User;
 
 class ContentController extends Controller
 {
@@ -17,8 +18,9 @@ class ContentController extends Controller
     public function index()
     {
         $contents = Content::all();
+
         return view('contents.index', [
-            'contents' => $contents
+            'contents' => $contents,
         ]);
     }
 
@@ -53,14 +55,14 @@ class ContentController extends Controller
             'updated_at' => 'nullable|date',
         ]);
 
-        $category = Category::where('categoryName', $request->categoryName)
-                                ->get('categoryId');
+        $categoryId = Category::where('categoryName', $request->categoryName)
+                                ->value('categoryId');
 
         Content::insert([
             'contentTitle' => $request->input('contentTitle'), 
             'contentDesc' => $request->input('contentDesc'),
             'contentImage' => $request->input('contentImage'),
-            'categoryId' => $category[0]->categoryId,
+            'categoryId' => $categoryId,
             'userId' => Auth::user()->userId,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
@@ -118,12 +120,15 @@ class ContentController extends Controller
         ]);
 
         $content = Content::find($id);
+        $categoryId = Category::where('categoryName', $request->categoryName)
+                                ->value('categoryId');
 
         $content->update([
             'contentTitle' => $request->input('contentTitle'), 
             'contentDesc' => $request->input('contentDesc'),
             'contentStatus' => $request->input('contentStatus'),
             'contentImage' => $request->input('contentImage'),
+            'categoryId' => $categoryId,
         ]);
 
         return redirect('/contents')->with('success', 'Content has been updated');

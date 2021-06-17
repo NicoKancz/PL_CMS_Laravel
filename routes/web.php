@@ -21,11 +21,15 @@ use App\Http\Controllers\RssFeedController;
 */
 
 //route to home website
-Route::get('/', [AppController::class, 'index'])->name('index');
+Route::get('/', [AppController::class, 'index'])->name('appLanguages');
+Route::get('/create', [AppController::class, 'languageCreate']);
+Route::post('/', [AppController::class, 'languageStore']);
 //route to categories
-Route::get('/appLanguage/{id}', [AppController::class, 'language'])->name('language');
+Route::get('/appCategories/{id}', [AppController::class, 'categories'])->name('appCategories');
+Route::get('/appCategories/{id}/create', [AppController::class, 'categoryCreate']);
+Route::post('/appCategories/{id}', [AppController::class, 'categoryStore']);
 //route to contents
-Route::get('/appCategory/{id}', [AppController::class, 'category'])->name('category');
+Route::get('/appContents/{id}', [AppController::class, 'contents'])->name('appContents');
 //route to show specific content
 Route::get('/appContent/{id}', [AppController::class, 'content'])->name('content');
 Route::post('/appContent/{id}', [CommentController::class, 'store']);

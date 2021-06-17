@@ -13,8 +13,11 @@
         <div class="col-md-4 tw-bg-white tw-bg-opacity-50">
             <h2 class="tw-font-bold tw-text-lg">Description</h2>
         </div>
-        <div class="col-md-4 tw-bg-white tw-bg-opacity-50">
+        <div class="col-md-2 tw-bg-white tw-bg-opacity-50">
             <h2 class="tw-font-bold tw-text-lg">Category</h2>
+        </div>
+        <div class="col-md-2 tw-bg-white tw-bg-opacity-50">
+            <h2 class="tw-font-bold tw-text-lg">User</h2>
         </div>
         <div class="col-md-2 tw-bg-white tw-bg-opacity-50">
         </div>
@@ -28,15 +31,18 @@
         <div class="col-md-4 tw-bg-white tw-bg-opacity-50">
             <p>{{$content->contentDesc}}</p>
         </div>
-        <div class="col-md-4 tw-bg-white tw-bg-opacity-50">
+        <div class="col-md-2 tw-bg-white tw-bg-opacity-50">
             <p>{{$content->category->categoryName}}</p>
+        </div>
+        <div class="col-md-2 tw-bg-white tw-bg-opacity-50">
+            <p>{{$content->user->userName}}</p>
         </div>
         <div class="col-md-2 tw-bg-white tw-bg-opacity-50">
             <a class="tw-text-blue-500" href="{{url('/contents/' . $content->contentId . '/edit')}}">Edit</a>
             <form action="{{url('/contents/' . $content->contentId)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button class="tw-text-red-500" type="submit" title="delete">
+                <button class="hover:tw-text-red-500" type="submit" title="delete">
                     Delete
                 </button>
             </form>

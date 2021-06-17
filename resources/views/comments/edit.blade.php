@@ -6,12 +6,12 @@
             <h1 class="tw-text-2xl tw-font-bold">Update Comment</h1>
         </div>
         <div class="col-md-1">
-            <a href="{{route('comments)}}">Back</a>
+            <a href="{{route('comments')}}">Back</a>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form action="{{route('comments)}}" method="post">
+            <form action="{{route('comments')}}" method="post">
                 @method('PATCH')
                 @csrf
                 <div class="form-group">

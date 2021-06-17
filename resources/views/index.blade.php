@@ -28,7 +28,7 @@
     <div class="row tw-py-4">
         @foreach($languages as $language)
         <div class="col-md-3">
-            <a href="{{route('language', $language->languageId)}}">
+            <a href="{{route('appCategories', $language->languageId)}}">
                 @if($language->languageImage == 'none')
                     <h2 class="tw-text-center tw-text-2xl tw-font-bold">{{$language->languageName}}</h2>
                 @else
@@ -38,5 +38,12 @@
             </a>
         </div>
         @endforeach
+        <div class="col-md-3">
+            <a href="{{url('/create')}}">
+                @auth
+                    <h2 class="tw-text-center tw-mt-8 tw-text-2xl tw-font-bold">+ Add a language</h2>
+                @endauth
+            </a>
+        </div>
     </div>
 @endsection

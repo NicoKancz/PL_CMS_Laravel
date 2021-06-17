@@ -9,7 +9,7 @@
     @foreach($categories as $category)
     <div class="row">
         <div class="col-md-12">
-            <a href="{{route('category', $category->categoryId)}}">
+            <a href="{{route('appCategories', $category->languageId)}}">
                 <h2 class="tw-text-xl">{{$category->categoryName}}</h2>
             </a>
             <p>{{$category->created_at}}</p>

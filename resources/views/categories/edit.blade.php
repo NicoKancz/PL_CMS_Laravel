@@ -6,7 +6,7 @@
             <h1 class="tw-text-2xl tw-font-bold">Edit Category</h1>
         </div>
         <div class="col-md-1">
-            <a href="{{url('/categories')}}">Back</a>
+            <a href="{{route('categories')}}">Back</a>
         </div>
     </div>
     <div class="row">

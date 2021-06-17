@@ -8,7 +8,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <a href="{{route('language', $languageId)}}">Back</a>
+            <a href="{{route('appCategories', $languageId)}}">Back</a>
         </div>
     </div>
     @foreach($contents as $content)

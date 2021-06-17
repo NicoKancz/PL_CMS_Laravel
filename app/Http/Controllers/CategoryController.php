@@ -51,14 +51,13 @@ class CategoryController extends Controller
             'updated_at' => 'nullable|date',
         ]);
 
-        $language = Language::select('languageId')
-                            ->where('languageName', $request->languageName)
-                            ->get();
+        $languageId = Language::where('languageName', $request->languageName)
+                            ->value('languageId');
 
         Category::insert([
             'categoryName' => $request->input('categoryName'), 
             'categoryDesc' => $request->input('categoryDesc'),
-            'languageId' => $language[0]->languageId,
+            'languageId' => $languageId,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
         ]);
@@ -113,10 +112,13 @@ class CategoryController extends Controller
         ]);
 
         $category = Category::find($id);
+        $languageId = Language::where('languageName', $request->languageName)
+                                ->value('languageId');
 
         $category->update([
             'categoryName' => $request->input('categoryName'), 
-            'categoryDesc' => $request->input('categoryDesc') 
+            'categoryDesc' => $request->input('categoryDesc'), 
+            'languageId' => $languageId, 
         ]);
 
         return redirect('/categories')->with('success', 'Category has been updated');

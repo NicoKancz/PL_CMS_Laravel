@@ -6,7 +6,7 @@
             <h1 class="tw-text-3xl tw-font-bold">Edit Language</h1>
         </div>
         <div class="col-md-1">
-            <a href="{{url('/languages/' . $language->languageId)}}">Back</a>
+            <a href="{{route('languages')}}">Back</a>
         </div>
     </div>
     <div class="row">
