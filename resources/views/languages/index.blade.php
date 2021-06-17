@@ -20,7 +20,9 @@
     @foreach ($languages as $language)
     <div class="row tw-shadow-sm">
         <div class="col-md-5 tw-bg-white tw-bg-opacity-50">
-            <p>{{$language->languageName}}</p>
+            <a href="{{url('/languages/' . $language->languageId)}}">
+                <p>{{$language->languageName}}</p>
+            </a>
         </div>
         <div class="col-md-5 tw-bg-white tw-bg-opacity-50">
             <p>{{$language->languageAppearance}}</p>

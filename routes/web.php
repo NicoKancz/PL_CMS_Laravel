@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\RssFeedController;
 
@@ -84,6 +85,10 @@ Route::get('/news', [NewsController::class, 'index'])->name('news');
 Route::get('/news/content', [NewsController::class, 'content'])->name('newsContent');
 Route::get('/news/comment', [NewsController::class, 'comment'])->name('newsComment');
 Route::get('/news/category', [NewsController::class, 'category'])->name('newsCategory');
+
+//Route for users
+Route::get('/users', [UserController::class, 'index'])->name('users');
+Route::delete('/users/{id}', [UserController::class, 'destroy']);
 
 //RSS feed route
 Route::get('/feed', [RssFeedController::class, 'feed'])->name('feed');

@@ -26,7 +26,9 @@
     @foreach ($contents as $content)
     <div class="row tw-shadow-sm">
         <div class="col-md-2 tw-bg-white tw-bg-opacity-50">
-            <p>{{$content->contentTitle}}</p>
+            <a href="{{url('/contents/' . $content->contentId)}}">
+                <p>{{$content->contentTitle}}</p>
+            </a>
         </div>
         <div class="col-md-4 tw-bg-white tw-bg-opacity-50">
             <p>{{$content->contentDesc}}</p>

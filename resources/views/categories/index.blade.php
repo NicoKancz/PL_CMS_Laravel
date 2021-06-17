@@ -23,7 +23,9 @@
     @foreach ($categories as $category)
     <div class="row tw-shadow-sm">
         <div class="col-md-2 tw-bg-white tw-bg-opacity-50">
-            <p>{{$category->categoryName}}</p>
+            <a href="{{url('/categories/' . $category->categoryId)}}">
+                <p>{{$category->categoryName}}</p>
+            </a>
         </div>
         <div class="col-md-4 tw-bg-white tw-bg-opacity-50">
             <p>{{$category->categoryDesc}}</p>

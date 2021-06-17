@@ -13,7 +13,7 @@
         <header class="tw-w-screen">
             <nav class="navbar navbar-expand-lg navbar-light tw-shadow-md">
                 <div class="container-fluid">
-                    <a class="navbar-brand tw-font-monument tw-font-bold tw-text-3xl tw-border-r-2 tw-pr-2 tw-m-0" 
+                    <a class="navbar-brand tw-font-monument tw-font-bold tw-text-3xl tw-border-r-2 tw-pr-2 tw-m-0"
                         href="{{route('appLanguages')}}">PL CMS</a>
                     <button
                         class="navbar-toggler"
