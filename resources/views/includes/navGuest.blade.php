@@ -9,11 +9,11 @@
                     News
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="nav-link hover:tw-bg-gray-400 <?=Route::currentRouteName() == 'newsCategory' ? $active = true : '';?>" 
+                    <a class="nav-link hover:tw-bg-blue-400 <?=Route::currentRouteName() == 'newsCategory' ? $active = true : '';?>" 
                         href="{{route('newsCategory')}}">Category</a>
-                    <a class="nav-link hover:tw-bg-gray-400 <?=Route::currentRouteName() == 'newsContent' ? $active = true : '';?>" 
+                    <a class="nav-link hover:tw-bg-blue-400 <?=Route::currentRouteName() == 'newsContent' ? $active = true : '';?>" 
                         href="{{route('newsContent')}}">Content</a>
-                    <a class="nav-link hover:tw-bg-gray-400 <?=Route::currentRouteName() == 'newsComment' ? $active = true : '';?>" 
+                    <a class="nav-link hover:tw-bg-blue-400 <?=Route::currentRouteName() == 'newsComment' ? $active = true : '';?>" 
                         href="{{route('newsComment')}}">Comment</a>
                 </div>
             </div>
