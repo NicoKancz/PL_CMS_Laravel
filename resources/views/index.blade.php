@@ -13,7 +13,6 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-
                         {{ __('You are logged in ' . Auth::user()->userName . '!') }}
                     </div>
                 </div>
