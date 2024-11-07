@@ -13,7 +13,9 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        {{ __('You are logged in ' . Auth::user()->userName . '!') }}
+                        {{ __('Welcome to PL_CMS! You are logged in ')}} 
+                            <span class="font-weight-bold h4"> {{Auth::user()->userName}} </span> 
+                        {{ __('!') }}
                     </div>
                 </div>
             </div>
@@ -21,15 +23,15 @@
     @endauth
     <div class="row">
         <div class="col-md-12">
-            <h1 class="tw-text-3xl tw-text-center tw-font-bold">Choose a programming language</h1>
+            <h1 class="tw-text-3xl tw-text-center tw-font-bold mt-4">Choose a programming language</h1>
         </div>
     </div>
     <div class="row tw-py-4">
         @foreach($languages as $language)
         <div class="col-md-3">
             <a href="{{route('appCategories', $language->languageId)}}">
-                @if($language->languageImage == 'none')
-                    <h2 class="tw-text-center tw-text-2xl tw-font-bold">{{$language->languageName}}</h2>
+                @if($language->languageImage == null)
+                    <h2 class="tw-text-center tw-text-2xl tw-font-bold">{{__($language->languageName)}}</h2>
                 @else
                     <img class="tw-bg-cover tw-mx-auto md:tw-w-76 md:tw-h-52 md:tw-my-6" 
                         src="{{asset('public/img/' . $language->languageImage)}}" alt="">

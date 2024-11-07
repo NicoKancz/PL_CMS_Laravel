@@ -41,21 +41,23 @@ class LanguageController extends Controller
     {
         $request->validate([
             'languageName' => 'required|max:55',
-            'languageAppearance' => 'required|numeric|digits:4',
+            'languageAppearance' => 'required|numeric|digits:4|date_format:Y|before:today',
             'languageImage' => 'nullable|file|max:255',
             'created_at' => 'nullable|date',
             'updated_at' => 'nullable|date',
         ]);
 
-        $imageFile = $request->file('languageImage');
-        $destinationPath = 'public/img/';
-        $originalFile = $imageFile->getClientOriginalName();
-        $imageFile->move($destinationPath, $originalFile);
+        if($request->hasFile('languageImage')){
+            $imageFile = $request->file('languageImage');
+            $destinationPath = 'public/img/';
+            $originalFile = $imageFile->getClientOriginalName();
+            $imageFile->move($destinationPath, $originalFile);
+        }
 
         Language::insert([
             'languageName' => $request->input('languageName'),
             'languageAppearance' => $request->input('languageAppearance'),
-            'languageImage' => $originalFile,
+            'languageImage' => $originalFile ?? null,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
         ]);
@@ -106,7 +108,7 @@ class LanguageController extends Controller
 
         $request->validate([
             'languageName' => 'required|max:55',
-            'languageAppearance' => 'required|numeric|digits:4',
+            'languageAppearance' => 'required|numeric|digits:4|date_format:Y|before:today',
             'languageImage' => 'nullable|file|max:255',
         ]);
 

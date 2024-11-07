@@ -9,7 +9,7 @@
             <a href="{{url('/languages')}}">Back</a>
         </div>
     </div>
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-md-12">
             <form action="{{url('/languages')}}" method="post" enctype="multipart/form-data">
                 @csrf

@@ -4,9 +4,7 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="tw-w-20 tw-h-20 tw-fill-current tw-text-gray-500" />
-            </a>
+            <x-application-logo class="tw-w-20 tw-h-20 tw-fill-current tw-text-gray-500" />
         </x-slot>
 
         <!-- Session Status -->
