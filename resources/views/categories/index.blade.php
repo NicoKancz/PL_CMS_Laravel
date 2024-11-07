@@ -2,8 +2,13 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-10">
         <h1 class="tw-text-3xl tw-font-bold">The Categories</h1>
+    </div>
+    <div class="col-md-2">
+        <a class="tw-text-2xl hover:tw-text-green-500 tw-font-bold" href="{{url('/categories/create')}}">
+            + Add new category
+        </a>
     </div>
 </div>
 <div class="table-responsive">
@@ -52,11 +57,5 @@
             @endforeach
         </tbody>
     </table>
-</div>
-<div class="row tw-shadow-sm">
-    <div class="col-md-12">
-        <a class="tw-text-2xl hover:tw-text-green-500 tw-font-bold" href="{{url('/categories/create')}}">+ Add new
-            category</a>
-    </div>
 </div>
 @endsection
