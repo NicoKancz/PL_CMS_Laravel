@@ -16,10 +16,12 @@
             <a class="nav-link <?=Route::currentRouteName() == 'comments' ? 'active' : '';?> tw-font-bold tw-text-xl" 
             href="{{url('/comments')}}">Comments</a>
         </li>
+        @if (Auth::user()->role === 'admin')
         <li class="nav-item">
             <a class="nav-link <?=Route::currentRouteName() == 'users' ? 'active' : '';?> tw-font-bold tw-text-xl" 
             href="{{url('/users')}}">Users</a>
         </li>
+        @endif
         <li class="nav-item">
             <div class="dropdown">
                 <button class="dropdown-toggle tw-font-bold tw-text-xl tw-bg-opacity-100

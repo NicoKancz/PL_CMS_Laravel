@@ -87,8 +87,8 @@ Route::get('/news/comment', [NewsController::class, 'comment'])->name('newsComme
 Route::get('/news/category', [NewsController::class, 'category'])->name('newsCategory');
 
 //Route for users
-Route::get('/users', [UserController::class, 'index'])->name('users');
-Route::delete('/users/{id}', [UserController::class, 'destroy']);
+Route::get('/users', [UserController::class, 'index'])->name('users')->middleware('restrictRole:admin');
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->middleware('restrictRole:admin');
 
 //RSS feed route
 Route::get('/feed', [RssFeedController::class, 'feed'])->name('feed');
