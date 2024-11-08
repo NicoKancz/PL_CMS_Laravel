@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\App;
-use App\Models\Language;
-use App\Models\Category;
-use App\Models\Content;
 use App\Models\Comment;
+use App\Models\Content;
+use App\Models\Category;
+use App\Models\Language;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class AppController extends Controller
 {
@@ -153,6 +154,52 @@ class AppController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function contentCreate($id)
+    {
+        $category = Category::find($id);
+
+        return view('contents.appCreate', [
+            'category' => $category,
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function contentStore(Request $request, $id)
+    {
+        $request->validate([
+            'contentTitle' => 'required|max:255',
+            'contentDesc' => 'required',
+            'contentStatus' => 'required|max:55',
+            'contentImage' => 'nullable|file|max:255',
+            'created_at' => 'nullable|date',
+            'updated_at' => 'nullable|date',
+        ]);
+
+        Content::insert([
+            'contentTitle' => $request->input('contentTitle'), 
+            'contentDesc' => $request->input('contentDesc'),
+            'contentStatus' => $request->input('contentStatus'),
+            'contentImage' => $request->input('contentImage'),
+            'categoryId' => $id,
+            'userId' => Auth::user()->userId,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        return redirect('/appContents/' . $id)->with('success', 'Content has been added');
+    }
+
+    /**
      * Display a listing of the contents.
      *
      * @param int $id
@@ -169,27 +216,6 @@ class AppController extends Controller
             'content' => $content,
             'comments' => $comments,
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**

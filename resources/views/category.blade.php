@@ -7,9 +7,16 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <a href="{{route('appCategories', $languageId)}}">Back</a>
         </div>
+        @auth
+        <div class="col-md-2">
+            <a class="tw-text-2xl hover:tw-text-green-500 tw-font-bold" href="{{url('/appContents/' . $category->categoryId . '/create')}}">
+                + Add new content
+            </a>
+        </div>
+        @endauth
     </div>
     @foreach($contents as $content)
     <div class="row">

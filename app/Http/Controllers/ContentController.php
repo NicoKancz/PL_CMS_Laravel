@@ -61,6 +61,7 @@ class ContentController extends Controller
         Content::insert([
             'contentTitle' => $request->input('contentTitle'), 
             'contentDesc' => $request->input('contentDesc'),
+            'contentStatus' => $request->input('contentStatus'),
             'contentImage' => $request->input('contentImage'),
             'categoryId' => $categoryId,
             'userId' => Auth::user()->userId,

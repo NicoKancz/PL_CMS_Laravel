@@ -24,7 +24,8 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($comments as $comment)
+            @if (! Auth::user()->comments->isEmpty())
+            @foreach (Auth::user()->comments as $comment)
             <tr>
                 <td class="col-md-2 tw-bg-white tw-bg-opacity-50">
                     {{$comment->user->userName}}
@@ -47,6 +48,7 @@
                 </td>
             </tr>
             @endforeach
+            @endif
         </tbody>
     </table>
 </div>

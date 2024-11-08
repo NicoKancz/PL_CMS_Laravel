@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('categoryName', 55);
             $table->text('categoryDesc')->nullable();
             $table->unsignedBigInteger('languageId');
-            $table->foreign('languageId')->references('languageId')->on('languages');
+            $table->foreign('languageId')->references('languageId')->on('languages')->onDelete('cascade');
             $table->timestamps();
         });
     }

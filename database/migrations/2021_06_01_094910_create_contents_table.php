@@ -22,7 +22,7 @@ class CreateContentsTable extends Migration
             $table->unsignedBigInteger('userId');
             $table->unsignedBigInteger('categoryId');
             $table->foreign('userId')->references('userId')->on('users');
-            $table->foreign('categoryId')->references('categoryId')->on('categories');
+            $table->foreign('categoryId')->references('categoryId')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

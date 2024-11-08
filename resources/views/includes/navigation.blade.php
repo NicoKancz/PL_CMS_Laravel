@@ -1,5 +1,6 @@
 <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
+        @if (Auth::user()->role === 'admin')
         <li class="nav-item">
             <a class="nav-link <?=Route::currentRouteName() == 'languages' ? 'active' : '';?> tw-font-bold tw-text-xl" 
             href="{{url('/languages')}}">Languages</a>
@@ -8,6 +9,7 @@
             <a class="nav-link <?=Route::currentRouteName() == 'categories' ? 'active' : '';?> tw-font-bold tw-text-xl" 
             href="{{url('/categories')}}">Categories</a>
         </li>
+        @endif
         <li class="nav-item">
             <a class="nav-link <?=Route::currentRouteName() == 'contents' ? 'active' : '';?> tw-font-bold tw-text-xl" 
             href="{{url('/contents')}}">Contents</a>

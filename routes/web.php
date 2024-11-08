@@ -23,21 +23,23 @@ use App\Http\Controllers\RssFeedController;
 
 //route to home website
 Route::get('/', [AppController::class, 'index'])->name('appLanguages');
-Route::get('/create', [AppController::class, 'languageCreate']);
+Route::get('/create', [AppController::class, 'languageCreate'])->middleware(['auth', 'restrictRole:admin']);
 Route::post('/', [AppController::class, 'languageStore']);
 //route to categories
 Route::get('/appCategories/{id}', [AppController::class, 'categories'])->name('appCategories');
-Route::get('/appCategories/{id}/create', [AppController::class, 'categoryCreate']);
+Route::get('/appCategories/{id}/create', [AppController::class, 'categoryCreate'])->middleware(['auth', 'restrictRole:admin']);
 Route::post('/appCategories/{id}', [AppController::class, 'categoryStore']);
 //route to contents
 Route::get('/appContents/{id}', [AppController::class, 'contents'])->name('appContents');
+Route::get('/appContents/{id}/create', [AppController::class, 'contentCreate'])->middleware(['auth']);
+Route::post('/appContents/{id}', [AppController::class, 'contentStore']);
 //route to show specific content
 Route::get('/appContent/{id}', [AppController::class, 'content'])->name('content');
 Route::post('/appContent/{id}', [CommentController::class, 'store']);
 
 //Routes for language model
 //routes for language crud system
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'restrictRole:admin'])->group(function () {
     Route::get('/languages', [LanguageController::class, 'index'])->name('languages');
     Route::get('/languages/create', [LanguageController::class, 'create']);
     Route::post('/languages', [LanguageController::class, 'store']);
@@ -49,7 +51,7 @@ Route::middleware(['auth'])->group(function () {
 
 //Routes for category model
 //routes for category crud system
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'restrictRole:admin'])->group(function () {
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
     Route::get('/categories/create', [CategoryController::class, 'create']);
     Route::post('/categories', [CategoryController::class, 'store']);
@@ -87,8 +89,8 @@ Route::get('/news/comment', [NewsController::class, 'comment'])->name('newsComme
 Route::get('/news/category', [NewsController::class, 'category'])->name('newsCategory');
 
 //Route for users
-Route::get('/users', [UserController::class, 'index'])->name('users')->middleware('restrictRole:admin');
-Route::delete('/users/{id}', [UserController::class, 'destroy'])->middleware('restrictRole:admin');
+Route::get('/users', [UserController::class, 'index'])->name('users')->middleware(['auth', 'restrictRole:admin']);
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->middleware(['auth','restrictRole:admin']);
 
 //RSS feed route
 Route::get('/feed', [RssFeedController::class, 'feed'])->name('feed');

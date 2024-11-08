@@ -21,7 +21,7 @@
         </div>
         @foreach($comments as $comment)
         <div class="col-md-12 tw-bg-white tw-bg-opacity-50">
-            <p class="tw-underline">From: {{$comment->user->userName}}</p>
+            <p class="tw-underline">From: {{$comment->user->userName ?? "Deleted"}}</p>
             <p>{{$comment->commentText}}</p>
             <p class="tw-text-gray-400">{{$comment->created_at}}</p>
             <hr>

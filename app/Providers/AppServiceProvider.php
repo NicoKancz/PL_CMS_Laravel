@@ -26,16 +26,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Gate::define('permission-languages', function (User $user, Language $language) {
-            return $user->id === $language->userId;
-        });
-
-        Gate::define('permission-categories', function (User $user, Category $category) {
-            return $user->id === $category->userId;
-        });
-
-        Gate::define('permission-contents', function (User $user, Content $content) {
-            return $user->id === $content->userId;
-        });
+        //
     }
 }

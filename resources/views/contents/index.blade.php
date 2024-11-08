@@ -32,7 +32,8 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($contents as $content)
+            @if (! Auth::user()->contents->isEmpty())
+            @foreach (Auth::user()->contents as $content)
             <tr>
                 <td class="col-md-2 tw-bg-white tw-bg-opacity-50">
                     <a href="{{url('/contents/' . $content->contentId)}}">
@@ -60,6 +61,7 @@
                 </td>
             </tr>
             @endforeach
+            @endif
         </tbody>
     </table>
 </div>
