@@ -26,8 +26,9 @@
             </section>
         </div>
         @endforeach
-        @if (Auth::user()->role === 'admin')
+        
         @auth
+        @if (Auth::user()->role === 'admin')
         <div class="col-md-3">
             <section class="tw-text-base tw-mx-auto tw-w-full tw-h-24 tw-my-4 tw-pt-1 tw-pl-1 tw-rounded-lg tw-bg-blue-500 tw-bg-opacity-50">
                 <a  class="tw-font-bold tw-text-xl"
@@ -36,7 +37,8 @@
                 </a>
             </section>
         </div>
-        @endauth
         @endif
+        @endauth
+        
     </div>
 @endsection

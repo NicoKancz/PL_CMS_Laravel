@@ -41,11 +41,11 @@
         @endforeach
         <div class="col-md-3">
             <a href="{{url('/create')}}">
-                @if (Auth::user()->role === 'admin')
                 @auth
+                @if (Auth::user()->role === 'admin')
                     <h2 class="tw-text-center tw-mt-8 tw-text-2xl tw-font-bold">+ Add a language</h2>
-                @endauth
                 @endif
+                @endauth
             </a>
         </div>
     </div>
