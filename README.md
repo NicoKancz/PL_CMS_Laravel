@@ -50,8 +50,8 @@ De inhoud van de categorieën kunnen zijn: een newsfeed, de frameworks, tutorial
 Gebruikers kunnen ofwel gewone gerbuikers of beheerders zijn. <br>
 Gebruikers die op de website zijn kunnen inloggen/inschrijven en zelf inhoud op de verschillende categorieën van een programmeertaal plaatsen. <br>
 De gewone gebruikers hebben recht om inhoud te kunnen plaatsen en commentaren op andere hun inhoud te geven. <br>
-Voorlopig kunnen alleen Beheerders programmeertalen en categorieën toevoegen, alsook de gebruikerslijst raadplegen via de navigatiebalk. <br>
+Voorlopig kunnen alleen Beheerders programmeertalen en categorieën toevoegen, alsook de gebruikerslijst raadplegen via de navigatiebalk.
 De hoofdpagina met de titel 'Choose a programming language' zijn de webpaginas die onbekende gebruikers gaan zien. <br>
-De links 'contents' en 'comments' achter de 'PL CMS' zijn alleen zichtbaar voor de geregistreerde gebruikers en beheerders. <br>
+De links 'contents' en 'comments' achter de 'PL CMS' zijn alleen zichtbaar voor de geregistreerde gebruikers en beheerders.
 De links 'languages', 'categories' en 'users' zijn alleen zichtbaar voor de beheerders.
 
